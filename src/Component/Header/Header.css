@@ -1,8 +1,23 @@
 .header{
-    width: 120px;
-    height: 40px;
+    text-align: center;
 }
-.header img{
-    width: 200px;
-    height: 80px;
+.logo{
+    height: 100px;  
+}
+.header nav{
+    background-color: black;
+    line-height: 50px;
+    text-align: left;
+}
+.header nav a{
+    text-decoration: none;
+    color: #ffff;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
+.header nav a:hover{
+    background-color: rgb(116, 109, 99);
+    border-radius: 10px;
 }
