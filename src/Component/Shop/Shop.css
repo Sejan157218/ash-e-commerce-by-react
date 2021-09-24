@@ -9,3 +9,12 @@
 .order-container{
     margin-left: 10px;
 }
+.input-field{
+    background-color: #161414;
+    line-height: 50px;
+    text-align: center;
+}
+.input-field input{
+    width: 75%;
+    line-height: 20px;
+}

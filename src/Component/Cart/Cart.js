@@ -1,10 +1,23 @@
 import React from 'react';
 
 const Cart = (props) => {
+
     const {cart} = props;
-    const newBalance = (previous,current) => previous + current.price;
+    // const newQuantity=(previous,current)=> previous + current.quantity;
+    // let totalQuantity = cart.reduce(newQuantity,0);
+    let quantity = 0;
+    for(const product of cart){
+        
+
+        if(!product.quantity){
+            product.quantity=1;
+        }
+        quantity = quantity + product.quantity
+        
+    }
+    const newBalance = (previous,current) => previous + current.price ;
     const totalBanlene = cart.reduce(newBalance,0);
-    const  newShipping = (previous,current) => previous + current.shipping;
+    const  newShipping = (previous,current) => previous + current.shipping ;
     const totalShipping = cart.reduce(newShipping,0);
     const totalTax = (totalBanlene + totalShipping) * .20;
     const totalAmount = totalBanlene + totalShipping + totalTax ;
@@ -12,7 +25,7 @@ const Cart = (props) => {
     return (
         <div>
             <h3>Order Summary</h3>
-            <p>Items Ordered : $ {props.cart.length}</p>
+            <p>Items Ordered : {quantity}</p>
             <p>Total Price : $ {totalBanlene.toFixed(2)}</p>
             <p>Total Shipping Cast : $ {totalShipping.toFixed(2)}</p>
             <p>Total Tax : $ {totalTax.toFixed(2)}</p>
