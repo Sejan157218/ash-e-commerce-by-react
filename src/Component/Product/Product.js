@@ -5,7 +5,7 @@ import './Product.css'
 
 const Product = (props) => {
     
-    const {key,name,img,price,seller,star,stock} = props.product;
+    const {name,img,price,seller,stock} = props.product;
     const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />
     return (
         <div className='product'>
@@ -17,8 +17,7 @@ const Product = (props) => {
                 <p>By {seller}</p>
                 <p>$ {price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
-                <button
-                onClick={()=>props.handlerAddToCart(props.product)} 
+                <button onClick={()=>props.handlerAddToCart(props.product)} 
                 className='btn-regular'
                 >{cartIcon}add to cart</button>
             </div>
