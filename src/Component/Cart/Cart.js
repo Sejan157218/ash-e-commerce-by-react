@@ -6,7 +6,7 @@ const Cart = (props) => {
     const totalBanlene = cart.reduce(newBalance,0);
     const  newShipping = (previous,current) => previous + current.shipping;
     const totalShipping = cart.reduce(newShipping,0);
-    const totalTax = totalBanlene * .20;
+    const totalTax = (totalBanlene + totalShipping) * .20;
     const totalAmount = totalBanlene + totalShipping + totalTax ;
     
     return (
