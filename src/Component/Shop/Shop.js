@@ -39,7 +39,15 @@ const Shop = () => {
         setDisplaySearch(SearchProduct);
     }
     const handlerAddToCart = product=>{
-        const newCart = [...cart,product]
+        const newCart = [...cart]
+        const isCartExiista = cart.find(cartAdd =>cartAdd.key===product.key)
+        if(isCartExiista){
+            product.quantity += 1;
+        }
+        else{
+            product.quantity = 1;
+            newCart.push(product);
+        }
         setCart(newCart);
         AddLocalStorage(product.key)
     }

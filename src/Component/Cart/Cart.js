@@ -6,21 +6,23 @@ const Cart = (props) => {
     // const newQuantity=(previous,current)=> previous + current.quantity;
     // let totalQuantity = cart.reduce(newQuantity,0);
     let quantity = 0;
-    for(const product of cart){
-        
-
+    let totalBanlene = 0
+    for(const product of cart){       
         if(!product.quantity){
             product.quantity=1;
         }
-        quantity = quantity + product.quantity
-        
+        quantity = quantity + product.quantity        
+        totalBanlene = totalBanlene + product.price *  product.quantity;      
     }
-    const newBalance = (previous,current) => previous + current.price ;
-    const totalBanlene = cart.reduce(newBalance,0);
-    const  newShipping = (previous,current) => previous + current.shipping ;
-    const totalShipping = cart.reduce(newShipping,0);
+    // const newBalance = (previous,current) =>previous + (current.price * quantity) ;
+    // const totalBanlene = cart.reduce(newBalance,0);
+    // const  newShipping = (previous,current) => previous + (current.shipping * quantity);
+    // const totalShipping = cart.reduce(newShipping,0);
+    // const totalTax = (totalBanlene + totalShipping) * .20;
+    // const totalAmount = totalBanlene + totalShipping + totalTax ;
+    const  totalShipping = 15;
     const totalTax = (totalBanlene + totalShipping) * .20;
-    const totalAmount = totalBanlene + totalShipping + totalTax ;
+     const totalAmount = totalBanlene + totalTax + totalShipping ;
     
     return (
         <div>
